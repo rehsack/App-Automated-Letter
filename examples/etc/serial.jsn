@@ -1,0 +1,37 @@
+{
+    "dbiconn" : [
+        "DBI:CSV:",
+	null,
+	null,
+	{
+	    "f_dir" : "./t",
+	    "f_ext" : ".csv",
+	    "f_encoding" : "iso8859-1"
+	}
+    ],
+    "sql" : {
+	"address-table" : "addresses",
+	"address-stmt" : null,
+    },
+    "letter" : {
+	"template" : "${SHARE}/komaltr.tex",
+	"mode" : "draft",
+	"format" : "tex",
+	"lco" : [
+	    "${CFGDIR}/letter-design",
+	    "${CFGDIR}/user"
+	]
+    },
+    "print" : {
+	"cmd" : "${PERL}",
+	"args" : [
+	    "-e 'print'"
+	],
+	"format" : "ps",
+	"store" : 0
+    },
+    "output" : {
+	"location": "${TMPDIR}",
+	"pattern": null
+    }
+}

@@ -1,0 +1,28 @@
+\documentclass{scrlttr2}
+
+[% FOREACH lco IN letter.lco -%]
+\LoadLetterOption{[% lco %]}
+[% END -%]
+
+\begin{document}
+\begin{letter}{
+[% address.name %]\\
+[% address.street %] [% address.number %]\\
+[% address.zip %] [% address.city %]\\
+[% address.country %]
+}
+
+% in some languages it's useful to choose
+% XXX we could add an own opening per language here ...
+[%- IF address.gender == "m" %]
+\opening{Dear [% address.opening %],}
+[%- ELSIF address.gender == "f" %]
+\opening{Dear [% address.opening %],}
+[%- ELSE %]
+\opening{Dear [% address.opening %],}
+[%- END %]
+
+[% INCLUDE $letter.body %]
+
+\end{letter}
+\end{document}

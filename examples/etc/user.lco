@@ -1,0 +1,20 @@
+\ProvidesFile{user.lco}
+
+\setkomavar{fromname}{Markus Mustermann}
+\setkomavar{fromaddress}{Musterstr. 99\\12345 Musterhausen\\Germany}
+\setkomavar{fromphone}{00 8000 12 34 56 78}
+\setkomavar{fromfax}{00 8000 12 34 56 79}
+\newkomavar{frommobile}
+\setkomavar{frommobile}{00 8000 55 12 34 56 78}
+\setkomavar{fromemail}{markus@mm.local}
+\setkomavar{fromurl}{www.come.to/wonderland}
+\setkomavar{fromlogo}{\includegraphics[scale=0.4]{/home/trevor/letter/akten-chaos_briefkopf}}
+%\setkomavar{frombank}{Account: ...
+%Name of Bank\\
+%BankID}
+\setkomavar{backaddressseparator}{%
+~\raisebox{0.25ex}{\textbf{\Large.}}~}
+\setkomafont{backaddress}{\sffamily\tiny}
+\setkomavar{backaddress}{Markus Mustermann
+\usekomavar{backaddressseparator}\usekomavar{fromaddress}}
+

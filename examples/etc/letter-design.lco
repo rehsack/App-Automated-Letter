@@ -1,0 +1,107 @@
+\ProvidesFile{letter-design.lco}
+
+\LoadLetterOption{DIN}
+%\@addtoplength{locvpos}{-\useplength[0.9]{locvpos}}
+\KOMAoptions{foldmarks=on,
+             paper=a4,
+	     fromlogo,
+	     fromalign=off,
+             fromphone=off,
+             fromrule=off,
+             fromfax=off,
+             fromemail=off,
+             fromurl=off,
+	     subject=beforeopening
+}
+
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[ngerman]{babel}% XXX fix it!
+\usepackage[scaled]{helvet}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{marvosym}
+
+\firsthead{%
+  \parbox[t]{\textwidth}{\tiny
+    \hfill
+      \begin{tabular}[t]{r@{}}%
+        \multicolumn{1}{@{}r@{}}{\usekomavar{fromlogo}}
+      \end{tabular}%
+  }
+}
+
+\setkomavar{location}{
+  \parbox[t]{\useplength{locwidth}}{\raggedleft
+    \footnotesize
+    \ifkomavarempty{fromname}{}{%
+      \usekomavar{fromname}\\
+      ~\\
+    }
+    \ifkomavarempty{fromaddress}{}{%
+      \usekomavar{fromaddress}\\
+      ~\\
+    }
+    \ifkomavarempty{fromphone}{}{%
+      \Telefon~\usekomavar{fromphone}\\
+    }
+    \ifkomavarempty{fromfax}{}{%
+      \Faxmachine~\usekomavar{fromfax}\\
+    }
+    \ifkomavarempty{frommobile}{}{%
+      \Mobilefone~\usekomavar{frommobile}\\
+    }
+    \ifkomavarempty{fromemail}{}{%
+      \MVAt~\usekomavar{fromemail}\\
+    }
+    \ifkomavarempty{fromurl}{}{%
+      \ComputerMouse~\usekomavar{fromurl}\\
+    }
+  }
+}
+
+%\firstfoot{%
+%  \parbox[t]{\textwidth}{\footnotesize
+%    \begin{tabular}[t]{l@{}l@{}r@{}}%
+%    Adresse & Kontakt & Bankverbindung\\
+%    Flittarder Hauptstraße 103 & Tel: 0221 - 67 11 78 86 & Kt-No: 123 45 67\\
+%    51061 Köln & Fax: 0221 - 67 11 78 89 & BLZ: 370 59 00
+%    \end{tabular}
+%  }
+%}
+
+%\firstfoot{%
+%  \parbox[t]{\textwidth}{\footnotesize
+%  }
+%}
+
+
+%\firstfoot{%
+%  \parbox[t]{\textwidth}{\tiny
+%    \ifkomavarempty{fromaddress}{}{%
+%      \hfill
+%      \begin{tabular}[t]{l@{}}%
+%        \multicolumn{1}{@{}l@{}}{\usekomavar*{fromaddress}:}\\
+%	\usekomavar{fromaddress}
+%      \end{tabular}%
+%      \hfill
+%    }
+%    \ifkomavarempty{fromphone}{}{%
+%      \hfill
+%      \begin{tabular}[t]{l@{}}%
+%        \multicolumn{1}{@{}l@{}}{\usekomavar*{fromphone}}\\
+%	\usekomavar{fromphone}
+%      \end{tabular}%
+%      \hfill
+%    }
+%    \ifkomavarempty{frombank}{}{%
+%      \hfill
+%      \begin{tabular}[t]{l@{}}%
+%        \multicolumn{1}{@{}l@{}}{\usekomavar*{frombank}:}\\
+%	\usekomavar{frombank}
+%      \end{tabular}%
+%    }%
+%  }%
+%}
+
+
