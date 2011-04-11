@@ -14,7 +14,6 @@ share/tpl.tt2
 t/00-load.t
 t/01-serial.t
 t/addresses.csv
-t/boilerplate.t
 t/example-body.tex
 t/manifest.t
 t/pod-coverage.t

@@ -28,6 +28,7 @@ use File::Spec       ();
 use IPC::Cmd         ();
 use Config::Any      ();
 use Template         ();
+use LaTeX::Encode    qw(latex_encode);
 
 =head2 opt_spec
 
@@ -342,6 +343,12 @@ sub execute
     my $sth = $dbh->prepare( $self->{sql}->{'address-stmt'} ) or croak $dbh->errstr;
     $sth->execute() or croak $dbh->errstr();
     my @addresses = $sth->fetchall_arrayref( {} );
+    my @addrlist;
+    foreach my $addritem ( @{ $addresses[0] } )
+    {
+	my %addr4latex = map { $_ => latex_encode( $addritem->{$_} ) } keys %$addritem;
+	push( @addrlist, \%addr4latex );
+    }
 
     my $template = Template->new(
                                   {
@@ -360,7 +367,7 @@ sub execute
     defined $self->{cfg}->{letter}->{mode}
       and push( @mode, $self->{cfg}->{letter}->{mode} );
 
-    foreach my $address ( @{ $addresses[0] } )
+    foreach my $address ( @addrlist )
     {
         foreach my $mode (@mode)
         {

@@ -20,9 +20,11 @@ my $builder = Module::Build->new(
 	'Config::Any' => 0,
 	'File::ConfigDir' => 0.003,
 	'File::Find::Rule' => '0.30',
+	'LaTeX::Encode' => '0.03',
 	'Template' => '2.00',
 	'Template::Plugin::Latex' => '3.01',
     },
+    script_files       => [ 'script/autolttr' ],
     share_dir          => { dist => [ 'share', ], },
     add_to_cleanup      => [ 'App-Serial-Letter-*' ],
 );
