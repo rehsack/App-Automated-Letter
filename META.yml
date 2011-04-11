@@ -30,6 +30,7 @@ requires:
   File::ConfigDir: 0.003
   File::Find::Rule: 0.30
   File::ShareDir: 1.00
+  LaTeX::Encode: 0.03
   Template: 2.00
   Template::Plugin::Latex: 3.01
 resources:
